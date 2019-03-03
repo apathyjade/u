@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    html, body {
+      background: #aaa;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/history/umd/history.min.js"></script>
+  <script page-base>
+
+      function forEach (l, cb) {
+        if (!l || !l.length) {
+          return
+        }
+        for (var i = 0; i < l.length; i++) {
+          cb(l[i], i)
+        }
+      }
+      function removeDiff (a, b, cb) {
+        forEach(a, function (item, index) {
+          var isHas = false
+          forEach(b, function (it, i) {
+            item === it && (isHas = true)
+          })
+          isHas || cb(item)
+        })
+      }
+
+      function __reset () {
+        let hc = document.head.children
+        let bc = document.body.children
+        removeDiff(hc, _HeadChildren, function (item) {
+          document.head.removeChild(item)
+        })
+        removeDiff(bc, _BodyChildren, function (item) {
+          document.body.removeChild(item)
+        })
+
+      } 
+      let _HeadChildren = []   
+      let _BodyChildren = []
+      forEach(document.head.children, function (item) {
+        _HeadChildren.push(item)
+      })
+      forEach(document.body.children, function (item) {
+        _BodyChildren.push(item)
+      })
+      let history = History.createBrowserHistory({
+        basename: '/test/index'
+      })
+      history.listen(location => {
+        setTimeout(function () {
+          __reset()
+        },0)
+        setTimeout(function () {
+          var style = document.createElement('link')
+          style.href = ''
+
+          var script = document.createElement('script')
+          script.src = ''
+          document.head.appendChild(style)
+          document.body.appendChild(script)
+        }, 2000)
+      })
+  </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+{
+  "name": "utility",
+  "version": "0.0.1",
+  "description": "utility tools",
+  "main": "index.js",
+  "scripts": {
+    "opn": "opn ./doc/index.html",
+    "jsdoc": "jsdoc src/ -d ./doc/ -c ./config/jsdoc.js -t ./node_modules/ink-docstrap/template -R README.md -r",
+    "test": "mocha test --require @babel/register",
+    "test:filter": "mocha test/filter.test.js --require @babel/register",
+    "test:href": "mocha test/href.test.js --require @babel/register",
+    "test:reg": "mocha test/reg.test.js --require @babel/register",
+    "test:time": "mocha test/time.test.js --require @babel/register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apathyjade/u.git"
+  },
+  "keywords": [
+    "utility",
+    "tools"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "author": "apathyjade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apathyjade/u/issues"
+  },
+  "homepage": "https://github.com/apathyjade/u#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/register": "^7.0.0",
+    "chai": "^4.2.0",
+    "ink-docstrap": "^1.3.2",
+    "jsdoc": "^3.5.5",
+    "mocha": "^5.2.0",
+    "opn-cli": "^4.0.0"
+  }
+}
