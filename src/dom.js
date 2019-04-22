@@ -127,3 +127,10 @@ function removeClass (el, cls) {
     }
   }
 }
+function toStyles(style) {
+  return Object.keys(style)
+    .map(property => {
+      return property + ': ' + style[property] + ';';
+    })
+    .join('');
+}
