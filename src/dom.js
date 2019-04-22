@@ -130,7 +130,8 @@ function removeClass (el, cls) {
 function toStyles(style) {
   return Object.keys(style)
     .map(property => {
-      return property + ': ' + style[property] + ';';
+      let propStr = property.replace(/([A-Z])/g,"-$1").toLowerCase()
+      return propStr + ': ' + style[property] + ';';
     })
     .join('');
 }
