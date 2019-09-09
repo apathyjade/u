@@ -48,3 +48,39 @@ export const getDataFactory = (fn, ops = {}) => {
     })
   }
 }
+// 迭代 promise 数组
+const iterationPromise = (list = []) => {
+  return (...args) => {
+    return new Promise((resolve, reject) => {
+      if (list.length < 1) return Promise.resolve()
+      const nextList = arrayMap(list, (it, idx, list) => () => {
+        it(...args)
+          .then(data => {
+            if (list.length <= idx + 1) {
+              resolve(data)
+            } else {
+              nextList[idx + 1]()
+            }
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+      nextList[0]()
+    })
+  }
+}
+// function 转 promise
+const res2Promise = fn => data => {
+  return new Promise((resolve, reject) => {
+    const res = fn(data)
+    if (res instanceof Promise) {
+      res.then(resolve).catch(reject)
+    }
+    if (res instanceof Error) {
+      reject(res)
+    }
+    resolve(res)
+  })
+}
+
