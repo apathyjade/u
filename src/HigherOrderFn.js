@@ -48,8 +48,8 @@ export const getDataFactory = (fn, ops = {}) => {
     })
   }
 }
-// 迭代 promise 数组
-const iterationPromise = (list = []) => {
+/** 迭代 promise 数组 */
+export const iterationPromise = (list = []) => {
   return (...args) => {
     return new Promise((resolve, reject) => {
       if (list.length < 1) return Promise.resolve()
@@ -70,8 +70,8 @@ const iterationPromise = (list = []) => {
     })
   }
 }
-// function 转 promise
-const res2Promise = fn => data => {
+/** 返回值 转 promise  */
+export const res2Promise = fn => data => {
   return new Promise((resolve, reject) => {
     const res = fn(data)
     if (res instanceof Promise) {
@@ -83,4 +83,3 @@ const res2Promise = fn => data => {
     resolve(res)
   })
 }
-
