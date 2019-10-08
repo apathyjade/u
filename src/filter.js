@@ -65,3 +65,15 @@ export const formatDate = (timer, tpl) => {
   let reg = new RegExp(array.join('|'), 'g')
   return tpl.replace(reg, s => data[s])
 }
+
+const ESC = {
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  '&': '&amp;'
+}
+
+export function escape (s) {
+  return s.replace(/[<>"&]/g, a => ESC[a] || a)
+}
+
