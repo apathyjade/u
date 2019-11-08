@@ -2,10 +2,9 @@
  * @Author: xinyu.wang
  * @Date: 2017-08-21 16:41:30
  * @Last Modified by: apathyjade
- * @Last Modified time: 2019-02-12 15:26:23
+ * @Last Modified time: 2019-11-07 15:08:52
  */
 
-import { expect } from 'chai'
 import { time } from '../index'
 describe('isToday测试', function () {
   it('', function () {

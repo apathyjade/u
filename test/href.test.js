@@ -1,10 +1,10 @@
 /*
  * @Author: xinyu.wang
  * @Date: 2017-08-15 17:45:57
- * @Last Modified by: xinyu.wang
- * @Last Modified time: 2017-08-21 13:54:57
+ * @Last Modified by: apathyjade
+ * @Last Modified time: 2019-11-07 15:08:40
  */
-import {expect} from 'chai'
+
 import {href} from '../index'
 describe('URI获取参数测试', function () {
   it('无参数测试', function () {

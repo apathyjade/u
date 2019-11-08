@@ -2,9 +2,9 @@
  * @Author: xinyu.wang
  * @Date: 2017-08-15 17:45:57
  * @Last Modified by: apathyjade
- * @Last Modified time: 2019-02-12 14:53:38
+ * @Last Modified time: 2019-11-07 15:08:48
  */
-import {expect} from 'chai'
+
 import {reg} from '../index'
 describe('判断包含正则工厂', function () {
   it('中文测试', function () {

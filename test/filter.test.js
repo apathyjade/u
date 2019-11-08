@@ -2,10 +2,9 @@
  * @Author: xinyu.wang
  * @Date: 2017-08-21 13:55:16
  * @Last Modified by: apathyjade
- * @Last Modified time: 2019-02-12 15:05:51
+ * @Last Modified time: 2019-11-07 15:08:34
  */
 
-import {expect} from 'chai'
 import {filter} from '../index'
 
 describe('数字精度处理测试', function () {
