@@ -65,3 +65,18 @@ export const url2Json = (url) => {
   }
   return paras
 }
+
+export const deepDecode = url => {
+  let curr = ''
+  let decode = url
+  let max = 20
+  let i = 0
+  try {
+    while (i <= max && curr !== decode) {
+      i++
+      curr = decode
+      decode = decodeURIComponent(curr)
+    }
+  } catch {}
+  return decode
+}
